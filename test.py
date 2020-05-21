@@ -84,7 +84,6 @@ def drawfailframe(root,wt,ft,playerName,mot):
 
 
     winning=Frame(root)
-
     refr = ttk.Button(root, width=50, height=50)
     refr.config(image=ref, bg='black', relief="flat",command=lambda: drawmaingame(root,icon1,cl,clavier,mot,l))
 
@@ -143,7 +142,7 @@ def reset():
         cl.append(chr(i))
     randomword()
     drawkey(cl, clavier)
-    affmsg(mot, l, root)
+    affmsg(l, root)
 
 
 
@@ -193,7 +192,8 @@ def drawkey(cl, clavier):
 
 
 
-def affmsg(mot, l, hidden):
+def affmsg(l, hidden):
+    global mot
     res = ' '
     for i in mot:
         if i in l:
@@ -227,7 +227,6 @@ def readkey(mot, c):
         reset()
         ft=ft+1
         drawfailframe(root,wt,ft,playerName,mot)
-
     if countm(mot):
         reset()
         wt=wt+1
@@ -240,8 +239,8 @@ def drawmaingame(root,icon1,cl,clavier,mot,l):
     for widget in root.winfo_children():
         widget.destroy()
     drawkey(cl, clavier)
-    affmsg(mot, l, root)
     pendu(root)
+    affmsg(l, root)
 
 
 
