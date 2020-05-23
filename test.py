@@ -3,6 +3,12 @@ from tkinter import ttk
 import tkinter as ttk
 import random
 
+def drawback(root):
+    global backg
+    canvas = Canvas(root, width = 800, height = 400)
+    canvas.place(x=0,y=0)
+    canvas.create_image(0,0, anchor=NW, image=backg)
+
 
 
 
@@ -119,11 +125,16 @@ def drawfailframe(root,wt,ft,playerName,mot):
 
 
 def drawIcon():
-    global icon1
+    indice = ttk.Button(root)
+    indice.config(bg='#65ccf5', font=('DerpIcons', 40), relief="flat",text='&',foreground='white',activeforeground='black',activebackground='#65ccf5',command= lambda :switch())
+    indice.place(x=5,y=5)
 
-    indice = ttk.Button(root, width=50, height=50)
-    indice.config(image=icon1, bg='#155263', relief="flat")
-    indice.grid(row=0,column=0)
+
+def switch():
+    global root,icon1,cl,clavier,mot,l
+    reset()
+    drawmaingame(root,icon1,cl,clavier,mot,l)
+
 
 
 
@@ -201,7 +212,7 @@ def affmsg(l, hidden):
         else:
             res = res + '_ '
     mes = Message(hidden, text=res)
-    mes.config(bg='#EEEEEE', font=('futurist-fixed-width', 24), anchor="center", width=500, foreground="black")
+    mes.config(bg='#65ccf5', font=('futurist-fixed-width', 24), anchor="center", width=500, foreground="black")
     mes.grid(row=0, column=1, sticky="snew", ipadx=10, ipady=10, padx=100, pady=50)
 
 
@@ -238,9 +249,12 @@ def readkey(mot, c):
 def drawmaingame(root,icon1,cl,clavier,mot,l):
     for widget in root.winfo_children():
         widget.destroy()
+    drawback(root)
     drawkey(cl, clavier)
     pendu(root)
     affmsg(l, root)
+    if lose==0:
+        drawIcon()
 
 
 
@@ -305,6 +319,7 @@ p4=PhotoImage(file="p4.gif")
 p5=PhotoImage(file="p5.gif")
 p6=PhotoImage(file="p6.gif")
 lp=[p1,p2,p3,p4,p5,p6]
+backg=PhotoImage(file="background.png")
 root.title('pendu')
 root.configure(bg='#FFE8DF')
 root.geometry("800x400")
