@@ -126,7 +126,7 @@ def drawfailframe(root,wt,ft,playerName,mot):
 
 def drawIcon():
     indice = ttk.Button(root)
-    indice.config(bg='#65ccf5', font=('DerpIcons', 40), relief="flat",text='&',foreground='white',activeforeground='black',activebackground='#65ccf5',command= lambda :switch())
+    indice.config(bg='#65ccf5', font=('DerpIcons', 41), relief="flat",text='&',foreground='white',activeforeground='black',activebackground='#65ccf5',command= lambda :switch())
     indice.place(x=5,y=5)
 
 
