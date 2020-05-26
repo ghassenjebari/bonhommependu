@@ -61,7 +61,7 @@ def drawwinframe(root,wt,ft,playerName,mot):
     else:
         wintime=str(wt)+' win !'
 
-    if wt>1:
+    if ft>1:
         failtime=str(ft)+' fails !'
     else:
         failtime=str(ft)+' fail !'
@@ -105,7 +105,7 @@ def drawfailframe(root,wt,ft,playerName,mot):
     else:
         wintime=str(wt)+' win !'
 
-    if wt>1:
+    if ft>1:
         failtime=str(ft)+' fails !'
     else:
         failtime=str(ft)+' fail !'
